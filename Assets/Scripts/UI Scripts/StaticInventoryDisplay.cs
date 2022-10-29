@@ -14,7 +14,7 @@ public class StaticInventoryDisplay : InventoryDisplay
 
         if (inventoryHolder != null)
         {
-            inventorySystem = inventoryHolder.InventorySystem;
+            inventorySystem = inventoryHolder.PrimaryInventorySystem;
             inventorySystem.OnInventoryChanged += UpdateSolt;
         }
         else

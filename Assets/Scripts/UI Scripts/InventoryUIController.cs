@@ -5,34 +5,49 @@ using UnityEngine.InputSystem;
 
 public class InventoryUIController : MonoBehaviour
 {
-    public DynamicInventoryDisplay inventoryPanel;
+    public DynamicInventoryDisplay chestPanel;
+    public DynamicInventoryDisplay playerBackPackPanel;
 
     private void Awake()
     {
-        inventoryPanel.gameObject.SetActive(false);
+        chestPanel.gameObject.SetActive(false);
+        playerBackPackPanel.gameObject.SetActive(false);
     }
 
     private void OnEnable()
     {
-        InventoryHolder.OnDynamicInveantoryDisplayRequested += DisplayInventory;    
+        InventoryHolder.OnDynamicInveantoryDisplayRequested += DisplayInventory;
+        PlayerInventoryHolder.OnPlayerBackPackDisplayRequsted += DisplayPlayerBackPack;
     }
 
     private void OnDisable()
     {
         InventoryHolder.OnDynamicInveantoryDisplayRequested -= DisplayInventory;
+        PlayerInventoryHolder.OnPlayerBackPackDisplayRequsted -= DisplayPlayerBackPack;
     }
 
     private void Update()
     {
-        if (inventoryPanel.gameObject.activeInHierarchy && Keyboard.current.escapeKey.wasPressedThisFrame) 
-            inventoryPanel.gameObject.SetActive(false);
+        if (chestPanel.gameObject.activeInHierarchy && Keyboard.current.escapeKey.wasPressedThisFrame) 
+            chestPanel.gameObject.SetActive(false);
+
+        if (playerBackPackPanel.gameObject.activeInHierarchy && Keyboard.current.escapeKey.wasPressedThisFrame)
+            playerBackPackPanel.gameObject.SetActive(false);
     }
 
     void DisplayInventory(InventorySystem invToDisplay)
     {
-        inventoryPanel.gameObject.SetActive(true);
-        inventoryPanel.RefreshDynamicInventory(invToDisplay);
+        chestPanel.gameObject.SetActive(true);
+        chestPanel.RefreshDynamicInventory(invToDisplay);
     }
+    
+    void DisplayPlayerBackPack(InventorySystem invToDisplay)
+    {
+        playerBackPackPanel.gameObject.SetActive(true);
+        playerBackPackPanel.RefreshDynamicInventory(invToDisplay);
+    }
+
+
 
 
 }
