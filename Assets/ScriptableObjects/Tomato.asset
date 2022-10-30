@@ -16,4 +16,5 @@ MonoBehaviour:
   DisplayName: Toamto
   Description: This is Tamoato
   Icon: {fileID: 21300000, guid: 44deacf78038c8a4ea58a4521b06eb53, type: 3}
-  MaxStavkSize: 5
+  MaxStackSize: 2
+  GoldValue: 0

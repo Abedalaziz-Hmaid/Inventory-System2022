@@ -16,4 +16,5 @@ MonoBehaviour:
   DisplayName: Pumpkin
   Description: This is a Pumpkin
   Icon: {fileID: 21300000, guid: bc99b755360b0e14d8cbcc620dd2284a, type: 3}
-  MaxStavkSize: 3
+  MaxStackSize: 2
+  GoldValue: 0

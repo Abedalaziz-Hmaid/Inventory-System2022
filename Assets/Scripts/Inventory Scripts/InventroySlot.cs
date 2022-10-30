@@ -48,13 +48,13 @@ public class InventroySlot
 
     public bool EnoughRoomLeftInStack(int amountToAdd , out int amountRemaining) // wolud the enough room in the stack for amount we're try to add.
     {
-        amountRemaining = ItemData.MaxStavkSize - stackSize;
+        amountRemaining = ItemData.MaxStackSize - stackSize;
         return EnoughRoomLeftInStack(amountToAdd);
     }
 
     public bool EnoughRoomLeftInStack(int amountToAdd)
     {
-        if (itemData == null || itemData != null && stackSize + amountToAdd <= itemData.MaxStavkSize) return true;
+        if (itemData == null || itemData != null && stackSize + amountToAdd <= itemData.MaxStackSize) return true;
         else return false;
     }
 
